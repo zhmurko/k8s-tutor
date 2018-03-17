@@ -27,7 +27,7 @@ func main() {
 	signal.Notify(interrupt, os.Interrupt, syscall.SIGTERM)
 
 	srv := &http.Server{
-		Addr:    ":" + port,
+		Addr:    "0.0.0.0:" + port,
 		Handler: router,
 	}
 
@@ -36,7 +36,6 @@ func main() {
 	}()
 
 	log.Print("The service is ready to listen and serve on port: " + port)
-	log.Fatal(http.ListenAndServe(":"+port, router))
 
 	killSignal := <-interrupt
 	switch killSignal {
