@@ -5,6 +5,7 @@ import (
     "net/http"
     "os"
     "tutor/handlers"
+    "tutor/version"
 )
 
 func main() {
