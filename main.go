@@ -18,6 +18,6 @@ func main() {
         log.Fatal("Port is not set.")
     }
     router := handlers.Router()
-    log.Print("The service is ready to listen and serve.")
+    log.Print("The service is ready to listen and serve on port: "+port)
     log.Fatal(http.ListenAndServe(":"+port, router))
 }
