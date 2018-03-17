@@ -1,13 +1,14 @@
 package handlers
 
 import (
+    "tutor/version"
     "net/http"
     "net/http/httptest"
     "testing"
 )
 
 func TestRouter(t *testing.T) {
-    r := Router()
+    r := Router(version.BuildTime, version.Commit, version.Release)
     ts := httptest.NewServer(r)
     defer ts.Close()
 
